@@ -9,15 +9,6 @@ Green Bite is an API that __attempts__ to utilize regular expressions, NLP and p
 * The [SHARP database](https://www.sciencedirect.com/science/article/pii/S2352340919309722). Environmental impacts of 40,000 foods commonly eaten in 40 countries.
 * Simple weight tables to convert between volumetric and mass measurements.
 
-### What's the catch? 🤨
-The API makes __a lot__ of assumptions and simplifications. Take the results with a grain of salt. 🧂
-
-* __GHGE__ and __Land usage__ are the only metrics used, and they are weighted equally.
-* False positives are to be expected. The RegEx / NLP used to find matches is very basic.
-  * Use the `/parse` endpoint to inspect the details and make your own judgement.
-* Many ingredients are not in the database (or not in the format one might expect them to be).
-
-
 ## Quickstart
 
 1. Clone the repo
@@ -27,3 +18,22 @@ The API makes __a lot__ of assumptions and simplifications. Take the results wit
 3. Spin it up 👉 `docker run -p 80:80 green-bite`
 
 The API should now be available locally! 👉 http://0.0.0.0/docs
+
+## Example
+
+GET `http://0.0.0.0/parse/ingredient/1%20kg%20of%20bacon`
+
+Response 👇
+
+```json
+{
+ "inputIngredientString": "1 kg of bacon",
+ "ingredientMatched": "bacon",
+ "sustainabilityScore": 26.05213129,
+ "details": {
+  "quantity": 1,
+  "measurement": "kg",
+  "description": "bacon"
+  }
+}
+```
