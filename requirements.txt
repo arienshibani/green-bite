@@ -1,0 +1,5 @@
+fastapi==0.105.0
+pandas==2.0.2
+pydantic==2.5.3
+textblob==0.17.1
+uvicorn==0.17.4
