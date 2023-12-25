@@ -12,6 +12,7 @@ Using this formula
 * Alot of other assumptions and simplifications. Take the results with a shovel of salt. 🧂
 
 ## Quickstart
+* Make sure you have [Docker](https://www.docker.com/get-started) installed 
 
 1. `git clone git@github.com:arienshibani/green-bite.git`
 
