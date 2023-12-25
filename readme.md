@@ -1,4 +1,4 @@
-# Green Bite API 
+# Green Bite API 🌱
 Green Bite is an API that __attempts__ to utilize regular expressions, NLP and public data to calculate sustainability scores for food. Sometimes it even works! 🤷‍♂️ 
 
 ## How is it calculated? 💡
