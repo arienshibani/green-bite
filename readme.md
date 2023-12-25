@@ -1,5 +1,5 @@
 # Green Bite API 🌱
-Green Bite __attempts__ to utilize regular expressions, NLP and public data to calculate sustainability scores for food. Sometimes it even works! 🤷‍♂️ Part of my masters thesis on ingredient matching to determine the sustainability of online recipes. (Information Science, UiB: 2020). Written in Python, OpenAPI spec created with [FastAPI](https://fastapi.tiangolo.com/).
+Green Bite __attempts__ to calculate sustainability scores for food. Sometimes it even works! 🤷‍♂️ Part of my masters thesis on ingredient matching to determine the sustainability of online recipes. (Information Science, UiB: 2020).
 
 ## How are sustainability scores calculated? 💡
 Using this formula
@@ -13,15 +13,15 @@ Using this formula
 
 ## Quickstart
 
-1. Clone the repo
+1. `git clone git@github.com:arienshibani/green-bite.git`
 
-2. Build everything 👉 `docker build -t green-bite`
+2. 🏗️ Build image `docker build -t green-bite` 
 
-3. Spin it up 👉 `docker run -p 80:80 green-bite`
+3. 🐋 Run container  `docker run -p 80:80 green-bite`
 
-The API should now be available locally! 👉 http://0.0.0.0/docs
+The API should now be available 👉 http://0.0.0.0/docs
 
-## Example
+## Example Usage
 
 GET `http://0.0.0.0/parse/ingredient/1%20kg%20of%20bacon`
 
