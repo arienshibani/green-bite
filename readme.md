@@ -9,7 +9,7 @@ Using this formula
 
 * The [SHARP database](https://www.sciencedirect.com/science/article/pii/S2352340919309722). Environmental impacts of 40,000 foods commonly eaten in 40 countries.
 * Simple weight tables to convert between volumetric and mass measurements.
-* Alot of other assumptions and simplifications. Take the results with a shovel of salt. 🧂
+* **Alot** of assumptions and simplifications. Take the results with a shovel of salt. 🧂
 
 ## Quickstart
 * Make sure you have [Docker](https://www.docker.com/get-started) installed 
