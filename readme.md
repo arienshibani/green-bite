@@ -1,5 +1,8 @@
 # Green Bite API 🌱
-Green Bite __attempts__ to calculate sustainability scores for food. Sometimes it even works! 🤷‍♂️ Part of my masters thesis on ingredient matching to determine the sustainability of online recipes. (Information Science, UiB: 2020).
+Green Bite __attempts__ to calculate sustainability scores for food. Sometimes it even works! 🤷‍♂️ 
+
+## Masters thesis
+Part of my masters thesis: **Ingredient matching to determine the sustainability of online recipes. (Information Science, UiB: 2022).**
 
 
 ## How are sustainability scores calculated? 💡
