@@ -35,7 +35,7 @@ app = FastAPI(
 async def parse_ingredient_string(
     string: str = Path(description="i.e: '1 kg of bacon' or '2 pounds smoked salmon'")) -> ParsedIngredientResponse:
     """
-        Parse a raw ingredient string and return details about the attempted sustainability score. 
+        Parse a raw ingredient string and return details about the attempted sustainability score.
 
     """
     parsed = parseOneIngredient(string)
@@ -51,7 +51,6 @@ async def score(ingredients: List[str] = Query(example=["1 pound of cheese", "2 
     score = 0
     for ingredient in ingredients:
         score += calculate_score(ingredient)
-    
     return score
 
 def parseOneIngredient(string):
@@ -61,13 +60,13 @@ def parseOneIngredient(string):
 
     if score is None:
         raise HTTPException(status_code=404, detail="Item not found")
-    
-    # an object containing two properties: foodMatched and score
+
+    # Parses an ingredient, and returns details about DB match and sustainability score.
     res = {
-        "inputIngredientString": string, 
-        "ingredientMatched": food_match, 
-        "sustainabilityScore": score, 
+        "inputIngredientString": string,
+        "ingredientMatched": food_match,
+        "sustainabilityScore": score,
         "details": details
         }
-    
+
     return res
