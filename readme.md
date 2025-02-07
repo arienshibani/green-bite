@@ -17,7 +17,7 @@ Using this formula
 
 ### Ingredient strings 🥕
 
-The API uses __ingredient strings__ to produce scores. A string of characters that consist of three key elements: a __name__, an __amount__ and the __unit__ used to specify that amount. Every recipe contains a set of them. For example: `1 kilogram of beef` or `cheese, 2 pounds (Parmesan)` are instances of an ingredient string.
+The API uses __ingredient strings__ to produce scores. A string of characters that consist of three key elements: a __name__, an __amount__ and the __unit__ used to specify that amount. Every recipe contains a set of them. For example: `1 kilogram of beef` or `cheese, 2 pounds (Parmesan)` are both instances of an ingredient string.
 
 ## Quickstart 🚀
 
@@ -55,7 +55,7 @@ The __parse/ingredient__ endpoint takes an __ingredient string__ as input and re
 }
 ```
 
-### `POST /score`
+### `POST /score?ingredients=1%{ingredientString#1}%2{ingredientString#2}`
 
  The __score__ endpoint can be used to score any number of ingredient strings. Given an array of ingredient strings, it returns the combined sustainability score. Only the score is returned, no details about the individual ingredients. This endpoint is particularly useful for scoring entire recipes.
 
