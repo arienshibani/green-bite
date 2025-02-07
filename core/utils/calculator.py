@@ -1,13 +1,10 @@
 import pandas as pd
 import warnings
+from core.utils.measurement_conversions import convert_measurement_to_kg
+from core.utils.ingredient_parser import get_ingredient_description, get_quantity, get_unit_of_measurement
 
 # Mute irrelevant pandas warnings
 warnings.filterwarnings('ignore', category=UserWarning)
-
-
-# Importing our own modules
-from core.utils.measurement_conversions import convert_measurement_to_kg
-from core.utils.ingredient_parser import get_ingredient_description, get_quantity, get_unit_of_measurement
 
 
 # Filepath to CSV data
@@ -55,6 +52,7 @@ Ingredientmatcher.py
 This file handles the retrieval of GHGE and LU data from the SHARP dataset. By matching the parsed raw ingredient descriptions from "ingredientparser.py" and using them as a parameter in match_ingredient().
 '''
 
+
 def match_ingredient(ingredient_description: str, use_frequencies: bool = True) -> pd.DataFrame:
     '''
     Performs a regex.search() on all Food Item names in the SHARP-DB, and returns a dataframe with potential matches. The first match is used by default.
@@ -72,7 +70,7 @@ def match_ingredient(ingredient_description: str, use_frequencies: bool = True) 
         if len(search_result_sharp) == 1:
             return search_result_sharp.reset_index()
 
-        if(use_frequencies):
+        if (use_frequencies):
             '''
             For each ingredient in the now regex-filtered SHARP dataset (a subset of potential ingredient matches),
             we pick the one which has has the highest ingredient_frequency in ingredient_frequencies.csv.
@@ -103,7 +101,7 @@ def match_ingredient(ingredient_description: str, use_frequencies: bool = True) 
                     food_items_rank = frequencies_search_result.at[0, 'frequency']
 
                 # If this is the first ingredient we compute the frequency for:
-                if most_frequent_ingredient == None:
+                if most_frequent_ingredient is None:
                     most_frequent_ingredient = (
                         str(food_item), int(food_items_rank))
                     most_frequent_ingredient_df = pd.DataFrame(
@@ -123,7 +121,7 @@ def match_ingredient(ingredient_description: str, use_frequencies: bool = True) 
         print("Something went wrong when filtering out the SHARP dataset for potential ingredient matches.", KeyError)
         return sharp
 
-    except:
+    except Exception:
         return sharp
 
     return search_result_sharp.reset_index()
@@ -138,7 +136,7 @@ def calculate_score(raw_ingredient_string: str) -> float:
 
     def add_sustainability_factors(amount: int, ghge: float, land_usage: float) -> float:
         '''Amount has to be in kilograms.'''
-        return (amount*land_usage)+(amount*ghge)
+        return (amount * land_usage) + (amount * ghge)
 
     score = 0
 
