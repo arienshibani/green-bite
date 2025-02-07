@@ -44,7 +44,7 @@ async def parse_ingredient_string(
 
 @app.post("/score", tags=["Scoring 🌱"])
 
-async def score(ingredients: List[str] = Query(example=["1 pound of cheese", "2 cups of milk"])) -> float:
+async def score(ingredients: List[str] = Query(examples=["1 pound of cheese", "2 cups of milk"])) -> float:
     """
     Calculate the combined sustainability score of 1 or more ingredients.
     """
