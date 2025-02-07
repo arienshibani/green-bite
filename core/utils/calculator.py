@@ -16,13 +16,16 @@ frequencies_csv = 'core/data/ingredient_frequency.csv'
 weight_table_csv = 'core/data/weight_table.csv'
 
 
-# Convert it to Data Frames
 sharp = pd.read_csv(sharp_csv,
                     usecols=[
                         "Food item", "GHGE of 1 kg food as consumed_kgCO2eq",
                         "Land use of 1 kg food as consumed_m2_yr"
                     ])
-sharp = sharp.applymap(lambda s: s.lower() if type(s) == str else s)
+
+# Apply .map() to each column (Series) in the DataFrame
+for column in sharp.select_dtypes(include=['object']).columns:  # select columns with strings
+    sharp[column] = sharp[column].map(lambda s: s.lower() if isinstance(s, str) else s)
+
 sharp = sharp.rename(columns={"GHGE of 1 kg food as consumed_kgCO2eq": 'GHGE',
                               "Land use of 1 kg food as consumed_m2_yr": 'Land Use'})
 food_weights = pd.read_csv(weight_table_csv)
@@ -90,7 +93,7 @@ def match_ingredient(ingredient_description: str, use_frequencies: bool = True) 
                 food_items_LU = filtered_indexed_sharp.at[i, 'Land Use']
 
                 frequencies_search_result = frequencies[frequencies['ingredient_name'].str.contains(
-                    food_item)]  # Use that name as a parameter, to filter the frequencies dataset
+                    food_item, regex=False)]  # Use that name as a parameter, to filter the frequencies dataset
 
                 frequencies_search_result = frequencies_search_result.reset_index()
 
