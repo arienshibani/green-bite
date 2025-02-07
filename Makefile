@@ -20,3 +20,4 @@ help:
 	@echo "----------------------"
 	@echo "make install - Install dependencies required for the project."
 	@echo "make start - Start the API."
+	@echo "make test - Run unit-tests and lint all .py files with flake8."
