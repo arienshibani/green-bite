@@ -1,0 +1,32 @@
+name: 🧪 Run unit tests and lint files
+
+on:
+  pull_request:
+    branches:
+      - main  # Trigger the workflow for PRs targeting the main branch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9  # Use the version you need for your project
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  # Ensure all dependencies are installed
+
+    - name: Run unit tests.
+      run: |
+        pytest --maxfail=1 --disable-warnings -v  # Run pytest, stop at the first failure
+
+    - name: Lint all .py files with Flake8
+      run: |
+        flake8 .  # Run flake8 to lint the code
