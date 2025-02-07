@@ -1,0 +1,9 @@
+{
+	"workbench.colorCustomizations": {
+		"titleBar.inactiveBackground": "#0ac2a7",
+		"titleBar.activeBackground": "#0ac2a7",
+		"titleBar.inactiveForeground": "#000000",
+		"titleBar.activeForeground": "#000000"
+	},
+	"conventionalCommits.emojiFormat": "emoji"
+}
