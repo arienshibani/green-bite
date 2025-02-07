@@ -68,6 +68,16 @@ The __parse/ingredient__ endpoint takes an __ingredient string__ as input and re
 0.7855314915881078
 ```
 
+## Local Development 🛠️
+
+* Make sure you have [Python 3.9 or above](https://www.python.org/downloads/) and `makefile` installed (makefile should already be installed if you are on a linux or a mac).
+
+1. ✨ Clone repo `git clone git@github.com:arienshibani/green-bite.git`
+
+2. 🏗️ Navigate into repo and run `make install`
+
+3. ⚙️ Start the API `make start`
+
 ## Disclaimers 📜
 
 * This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license.
