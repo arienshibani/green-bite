@@ -25,7 +25,7 @@ jobs:
 
     - name: Run unit tests.
       run: |
-        pytest --maxfail=1 --disable-warnings -v  # Run pytest, stop at the first failure
+        pytest --maxfail=1 --disable-warnings -v --cov --cov-report=term-missing --cov-fail-under=80 # Run pytest, stop at the first failure
 
     - name: Lint all .py files with Flake8
       run: |
