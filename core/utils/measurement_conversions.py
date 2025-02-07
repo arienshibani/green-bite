@@ -43,7 +43,7 @@ def ounce_to_metric(ounce: float = 1) -> float:
     return round(ounce * 0.0283495231, 3)
 
 
-'''The measures below are problematic as they are not measures of mass, but measures of volume. 
+'''The measures below are problematic as they are not measures of mass, but measures of volume.
 In order to get the exact values one needs the mass density of the substance in question. '''
 
 

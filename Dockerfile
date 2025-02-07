@@ -13,6 +13,9 @@ RUN pip install -v --no-cache-dir -r requirements.txt
 # Download required resources for NLTK
 RUN python -m nltk.downloader punkt averaged_perceptron_tagger
 
+# Run unit-tests
+RUN pytest -v --maxfail=1 --disable-warnings -q
+
 # Make port 80 available to the world outside this container
 EXPOSE 80
 

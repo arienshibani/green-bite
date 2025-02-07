@@ -1,3 +1,4 @@
+from fractions import Fraction
 from textblob import TextBlob
 import unicodedata
 import re
@@ -5,13 +6,13 @@ import re
 '''
 ingredientparser.py
 
-Handles the parsing of raw ingredient strings. 
+Handles the parsing of raw ingredient strings.
 
-For instance, the ingredient string: "1½ cup parmesan cheese" 
+For instance, the ingredient string: "1½ cup parmesan cheese"
 would return the following using the functions defined here:
 
 |- OUTPUT:
-|-- Quantity: 1.5 
+|-- Quantity: 1.5
 |-- Measurement: Cup
 |-- Ingredient Description: Parmesan Cheese
 
@@ -34,7 +35,7 @@ def generate_list_of_all_units() -> list:
 
     # Create a list of all measurement units that we wish to look for in a recipe string.
     list_of_units = list(set([x for key, value in units.items()
-                              for x in [key, value['desc'], key+'s', value['desc']+'s']]))
+                              for x in [key, value['desc'], key + 's', value['desc'] + 's']]))
     list_of_units.sort()  # Sets are unordered, so we order them..
     # ..then reverse the list to enforce plurals being matched before singular measurements with RegEx.
     list_of_units.reverse()
@@ -95,6 +96,8 @@ def get_quantity(raw_string: str = '100 ½ cups cheese') -> str:
 
     '''
 
+    # TODO: Write unit tests for fraction conversion.
+
     quantity = 0.0
 
     # RegEx patterns can be tested using: https://regexr.com/
@@ -108,7 +111,13 @@ def get_quantity(raw_string: str = '100 ½ cups cheese') -> str:
     find_integers = re.search(integers, raw_string)
 
     if bool(find_fraction_symbols):
+        # Convert the matches to integers and add them to the quantity.
         quantity += unicodedata.numeric(find_fraction_symbols.group(0))
+
+    if bool(find_written_fractions):
+        # Use the fractions module to convert the written fraction to a float and add it to the quantity.
+        fraction_string = find_written_fractions.group(0)
+        quantity += float(Fraction(fraction_string))
 
     if bool(find_integers):
         quantity += int(find_integers.group(0))
@@ -119,8 +128,8 @@ def get_quantity(raw_string: str = '100 ½ cups cheese') -> str:
 def get_unit_of_measurement(raw_string: str = '100½ cups cheese', unit_list: list = list_of_units) -> str:
     '''Retrieve the measurement unit of a raw ingredient string.
 
-    Simply matches the raw string against a RegEx pattern of all the units mentioned in "unit_list". 
-    If none of the measurements are returned, the function assumes that the ingredients are measured in 
+    Simply matches the raw string against a RegEx pattern of all the units mentioned in "unit_list".
+    If none of the measurements are returned, the function assumes that the ingredients are measured in
     discrete terms (i.e "1 whole egg") without any specific measurement
 
     '''
