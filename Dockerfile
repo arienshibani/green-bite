@@ -14,7 +14,7 @@ RUN pip install -v --no-cache-dir -r requirements.txt
 RUN python -m nltk.downloader punkt averaged_perceptron_tagger
 
 # Run unit-tests
-RUN pytest -v --maxfail=1 --disable-warnings -q
+RUN pytest -v --maxfail=1 --disable-warnings -q --cov --cov-report=term-missing --cov-fail-under=80
 
 # Make port 80 available to the world outside this container
 EXPOSE 80

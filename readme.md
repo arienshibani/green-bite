@@ -1,5 +1,7 @@
 # Green Bite API 🌱
 
+![Test Status](https://github.com/arienshibani/green-bite/actions/workflows/run-tests.yml/badge.svg?branch=main) 
+
 Green Bite __attempts__ to calculate sustainability scores for food.
 
 ![301833855-2df0c8f0-e957-4385-aff2-60cc5d1afa05 (1)](https://github.com/user-attachments/assets/52077c6b-4fa7-475b-be08-0cc18453711d)

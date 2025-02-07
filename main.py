@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, Query, Path
 from core.utils.calculator import calculate_score, get_food_match
 from core.utils.ingredient_parser import get_parsed_string
-from core.models.ParsedIngredientResponse import ParsedIngredientResponse
+from core.models.parsed_ingredient_response import ParsedIngredientResponse
 from typing import List
 
 
