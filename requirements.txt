@@ -1,4 +1,4 @@
-fastapi==0.105.0
+fastapi==0.115.8
 pandas==2.2.1
 pydantic==2.5.3
 textblob==0.17.1
