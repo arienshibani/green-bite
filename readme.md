@@ -21,7 +21,11 @@ Using this formula
 
 The API uses __ingredient strings__ to produce scores. A string of characters that consist of three key elements: a __name__, an __amount__ and the __unit__ used to specify that amount. Every recipe contains a set of them. For example: `1 kilogram of beef` or `cheese, 2 pounds (Parmesan)` are both instances of an ingredient string.
 
-## Quickstart 🚀
+## Try it out 🚀
+
+- You can test the API and generate scores for ingredients via the [interactive API documentation](https://green-bite-production.up.railway.app/docs)
+
+## Run Locally  ⚙️
 
 * Make sure you have [Docker](https://www.docker.com/get-started) installed and that it is running.
 
@@ -33,7 +37,7 @@ The API uses __ingredient strings__ to produce scores. A string of characters th
 
 The Open API specification should now be available locally via your webbrowser 👉 <http://0.0.0.0/docs>, and you can test the API.
 
-## Usage 📚
+## API Usage 📚
 
 The API exposes two main endpoints. One for parsing individual ingredient strings and one for scoring entire recipes.
 
