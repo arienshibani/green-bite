@@ -4,6 +4,12 @@
 
 API for parsing ingredient strings and calculating the environmental impact of the parsed food item. 
 
+* `"2 pounds smoked salmon" 👉 9.724508593539`
+*  `"10 cups of shallots (diced)" 👉 1.649056635080645`
+*  `"¼ cup fresh lemon juice" 👉 0.10300892338709677`
+  
+
+
 ![301833855-2df0c8f0-e957-4385-aff2-60cc5d1afa05 (1)](https://github.com/user-attachments/assets/52077c6b-4fa7-475b-be08-0cc18453711d)
 
 ## How are sustainability scores calculated? 💡
