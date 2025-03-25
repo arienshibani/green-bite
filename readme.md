@@ -2,7 +2,7 @@
 
 ![Test Status](https://github.com/arienshibani/green-bite/actions/workflows/run-tests.yml/badge.svg) 
 
-Green Bite __attempts__ to calculate sustainability scores for food.
+API for parsing ingredient strings and calculating the environmental impact of the parsed food item. 
 
 ![301833855-2df0c8f0-e957-4385-aff2-60cc5d1afa05 (1)](https://github.com/user-attachments/assets/52077c6b-4fa7-475b-be08-0cc18453711d)
 
